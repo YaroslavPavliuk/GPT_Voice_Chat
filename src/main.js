@@ -7,10 +7,6 @@ import { openai } from './openai.js'
 
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 
-bot.on(message('text'), async ctx =>{
-    await ctx.reply(JSON.stringify(ctx.message, null, 2))
-})
-
 bot.on(message('voice'), async ctx =>{
     try {
         await ctx.reply(code('Сообщение принял. Обрабатываю'))
@@ -32,14 +28,16 @@ bot.on(message('voice'), async ctx =>{
         await ctx.reply(response.content)
     }catch (e){
         console.log('Error while voice message', e.message)
-    }
-    
+    } 
 })
 
 bot.command('start', async (ctx) => {
     await ctx.reply(JSON.stringify(ctx.message, null, 2))
 })
 
+bot.command('start', async (mtx) => {
+    await mtx.reply(JSON.stringify(mtx.message, null, 2))
+})
 
 bot.launch()
 

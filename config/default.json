@@ -1,3 +1,5 @@
 {
-    "TELEGRAM_TOKEN" : "6215327579:AAFaJZbdD4vyBlfZfBkgd_SIyafD0xk2hbU"
+    "TELEGRAM_TOKEN": "6215327579:AAFaJZbdD4vyBlfZfBkgd_SIyafD0xk2hbU",
+
+    "OPENAI_KEY": "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"
 }

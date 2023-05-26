@@ -16,7 +16,8 @@ bot.on(message('voice'), async ctx =>{
         const userId = String(ctx.message.from.id)
         console.log(link.href)
         const oggPath = await ogg.create(link.href, userId)
-        await ctx.reply(JSON.stringify(link, null, 2))
+        const mp3Path = await ogg.toMp3(oggPath, userId)
+        await ctx.reply(mp3Path)
     }catch (e){
         console.log('Error while voice message', e.message)
     }
